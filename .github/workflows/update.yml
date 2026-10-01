@@ -1,9 +1,13 @@
-name: TVBox 聚合源每日自动更新
+name: TVBox 聚合源每20分钟自动更新
 
 on:
   schedule:
-    - cron: '0 20 * * *'  # 每天 UTC 20:00 (北京时间 04:00) 自动执行
-  workflow_dispatch:      # 支持手动触发更新
+    - cron: '*/20 * * * *'  # 每 20 分钟自动执行一次
+  workflow_dispatch:        # 支持手动触发更新
+
+concurrency:
+  group: tvyuan-update
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -11,6 +15,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: 检出仓库代码
         uses: actions/checkout@v4

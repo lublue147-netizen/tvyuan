@@ -14,6 +14,7 @@ GitHub Actions 每日自动执行：
 import json, sys, re, subprocess, os, time
 import urllib.parse
 from urllib.parse import urljoin, urlparse
+from concurrent.futures import ThreadPoolExecutor
 
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 CF_PROXY = os.environ.get("CF_PROXY", "")  # Cloudflare Worker 代理地址
@@ -277,33 +278,44 @@ def main():
     print(f"  源列表: {len(sources)}")
 
     # ── 2. 测延迟 + 抓取 ──
-    available = []
-    for name, url in sources:
+    def check_lat(item):
+        name, url = item
         try:
             t0 = time.time()
             r = subprocess.run(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}",
-                               "--connect-timeout", "5", "--max-time", "10",
+                               "--connect-timeout", "4", "--max-time", "8",
                                "-L", "-A", "Mozilla/5.0", url],
-                              capture_output=True, timeout=15)
+                              capture_output=True, timeout=10)
             code = r.stdout.decode().strip()
             lat = int((time.time() - t0) * 1000) if code.startswith(("2", "3")) else 99999
         except: lat = 99999
-        if lat < 99999: available.append((name, url, lat))
-        sys.stdout.write(f"\r  测速: {len(available)}/{len(sources)}"); sys.stdout.flush()
-    print()
+        return (name, url, lat)
+
+    print("  多线程测速中...")
+    available = []
+    with ThreadPoolExecutor(max_workers=30) as pool:
+        for res in pool.map(check_lat, sources):
+            if res[2] < 99999:
+                available.append(res)
     available.sort(key=lambda x: x[2])
-    print(f"  可用: {len(available)}")
+    print(f"  测速完成，可用: {len(available)}/{len(sources)}")
 
     # ── 3. 抓取并合并所有源 ──
     all_sites, all_lives, all_parses = [], [], []
     site_keys, live_keys, parse_keys = set(), set(), set()
     spider_jars = {}
-    # 记录每个采集站来自哪个源
     collect_sources = {}  # api -> (source_name, stype)
 
-    for name, url, lat in available:
-        sys.stdout.write(f"\r  合并: {name} ({lat}ms)"); sys.stdout.flush()
-        data = parse_json(curl(url, 15))
+    def fetch_source(item):
+        name, url, lat = item
+        data = parse_json(curl(url, 10))
+        return (name, url, lat, data)
+
+    print(f"  多线程抓取 {len(available)} 个可用源数据...")
+    with ThreadPoolExecutor(max_workers=20) as pool:
+        fetched_sources = list(pool.map(fetch_source, available))
+
+    for name, url, lat, data in fetched_sources:
         if not data: continue
 
         spider = data.get("spider", "")
@@ -318,7 +330,6 @@ def main():
             s["name"] = f"[{lat}ms|{name}] {s.get('name', key)}"
             s["_lat"] = lat
             all_sites.append(s)
-            # 记录采集站
             st = s.get("type", -1)
             api = s.get("api", "")
             if st in (0, 1) and api.startswith("http") and api not in collect_sources:
@@ -330,20 +341,26 @@ def main():
         for p in (data.get("parses") or []):
             u = p.get("url", "")
             if u and u not in parse_keys: parse_keys.add(u); all_parses.append(p)
-    print()
+    print(f"  合并完成: {len(all_sites)} 站点, {len(all_lives)} 直播, {len(all_parses)} 解析")
 
-    # ── 4. 采集站播放测速（直连2次 + CF代理1次）──
-    print(f"  播放测速: 测 {len(collect_sources)} 个采集站...")
-    collect_results = []
-    for api, (src_name, stype) in collect_sources.items():
-        for attempt in range(3):
-            use_proxy = (attempt == 2 and CF_PROXY)
+    # ── 4. 采集站播放测速（多线程并发测速）──
+    print(f"  播放测速: 多线程测 {len(collect_sources)} 个采集站...")
+    def test_collect_entry(entry):
+        api, (src_name, stype) = entry
+        for attempt in range(2):
+            use_proxy = (attempt == 1 and CF_PROXY)
             ttfb, speed, st = test_play_speed(api, stype, use_proxy=use_proxy)
             if st == "OK":
-                collect_results.append((ttfb, speed, api, stype)); break
-            if attempt < 2: time.sleep(2)
-        sys.stdout.write(f"\r  {len(collect_results)} 可用/{len(collect_sources)} 测试"); sys.stdout.flush()
-    print()
+                return (ttfb, speed, api, stype)
+            if attempt < 1: time.sleep(1)
+        return None
+
+    collect_results = []
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        for res in pool.map(test_collect_entry, collect_sources.items()):
+            if res is not None:
+                collect_results.append(res)
+    print(f"  播放测速完成: {len(collect_results)} 个可用")
 
     # 按持续速度排序（速度快→慢，同速按首帧快）
     collect_results.sort(key=lambda x: (-x[1], x[0]))
