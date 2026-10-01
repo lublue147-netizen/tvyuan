@@ -1,69 +1,40 @@
-# TVBox Aggregated Sources
+# TVBox Aggregated Sources (Daily Auto-Refresh & Split)
 
-Automatically aggregates TVBox movie and TV sources, updated hourly via GitHub Actions.
+Automatically aggregates and tests TVBox and FongMi sources daily via GitHub Actions.
 
-## Usage
+This repository features **strict separation between adult content (18+ / pron / madou / erotic) and family-clean content**, offering dedicated endpoints for different viewing environments.
 
-### 📺 One-Click Configuration (Recommended)
+---
 
-Directly copy the address into TVBox/Yingshicang/FongMi clients. Collection sites are sorted by playback speed tests for an out-of-the-box experience:
+## 🚀 Subscription Links
 
-```
-https://tv.cc0cd.cc.cd
-```
+### 🟢 1. Clean / Family Version (Safe for everyone, zero adult content)
 
-### 📺 Concise Version
+All adult, 18+, madou, and erotic collection sites and live streams have been stripped out.
 
-Contains only collection sites (fixed top 10 fastest), no dependency on JAR, **real playback speed sorting** (m3u8 → segment download):
+| Edition | Description | Raw GitHub | Accelerated Mirror (CDN) |
+| :--- | :--- | :--- | :--- |
+| **Concise Clean** | Top 10 fastest & most reliable non-adult collection sites, real speed tested | [tvbox.json](https://raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox.json) | `https://gh-proxy.org/raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox.json` |
+| **Full Clean** | 1200+ non-adult sites and 110+ TV live streams with spider JAR support | [tvbox_full.json](https://raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_full.json) | `https://gh-proxy.org/raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_full.json` |
+| **Multi-Repo Clean** | 90 curated independent warehouse repositories (adult repos excluded) | [tvbox_multi.json](https://raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_multi.json) | `https://gh-proxy.org/raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_multi.json` |
 
-| Channel | Address |
-|------|------|
-| 🔗 Direct Link | `https://tv.cc0cd.cc.cd/jj` |
-| 🌍 GitHub | `https://raw.githubusercontent.com/25175/tvyuan/master/tvbox.json` |
-| 🇨🇳 Gitee | `https://gitee.com/onm-hundred-and-eleven/tvyuan/raw/main/tvbox.json` |
+---
 
-### 🗄️ Full Version
+### 🔞 2. Adult Dedicated Version (Includes 18+ VOD, pron live streams & multi-repos)
 
-Combines all sites. Collection sites are ranked first by playback speed, followed by crawler sites by latency. Includes spider JARs:
+Dedicated to adults, aggregating 69 adult collection sites and 12 adult live streaming channels (including pron.m3u, Sex.m3u, Madou, 18+ Live, etc.):
 
-| Channel | Address |
-|------|------|
-| 🔗 Direct Link | `https://tv.cc0cd.cc.cd` |
-| 🌍 GitHub | `https://raw.githubusercontent.com/25175/tvyuan/master/tvbox_full.json` |
-| 🇨🇳 Gitee | `https://gitee.com/onm-hundred-and-eleven/tvyuan/raw/main/tvbox_full.json` (⚠️ May be unavailable due to Gitee censorship) |
+| Edition | Description | Raw GitHub | Accelerated Mirror (CDN) |
+| :--- | :--- | :--- | :--- |
+| **Adult Dedicated** | Complete adult subscription: 69 adult sites + 12 adult live channels + parsers | [tvbox_adult.json](https://raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_adult.json) | `https://gh-proxy.org/raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_adult.json` |
+| **Full Uncut** | Uncut edition with all 1300+ sites and 123 live channels | [tvbox_full_adult.json](https://raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_full_adult.json) | `https://gh-proxy.org/raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_full_adult.json` |
+| **Multi-Repo All** | All 93 warehouse repositories (including adult repos) | [tvbox_multi_adult.json](https://raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_multi_adult.json) | `https://gh-proxy.org/raw.githubusercontent.com/lublue147-netizen/tvyuan/master/tvbox_multi_adult.json` |
 
-### 📦 Multi-Repo Version
+---
 
-Keeps multiple repositories independent. Each source has its own JAR and sites, allowing you to switch repositories (Yingshicang/FongMi):
+## 📺 How to Use
 
-| Channel | Address |
-|------|------|
-| 🔗 Direct Link | `https://tv.cc0cd.cc.cd/multi` |
-| 🇨🇳 Gitee | `https://gitee.com/onm-hundred-and-eleven/tvyuan/raw/main/tvbox_multi.json` |
-| 🌍 GitHub | `https://raw.githubusercontent.com/25175/tvyuan/master/tvbox_multi.json` |
-
-## Client Downloads
-
-| Client | Multi-Repo | Repository Address |
-|--------|:----:|---------|
-| TVBox Original | ❌ | [GitHub Releases](https://github.com/o0HalfLife0o/TVBoxOSC/releases) |
-| Yingshicang (影视仓) | ✅ | [GitHub Repo](https://github.com/q215613905/TVBoxOSC) |
-| FongMi (丰米) | ✅ | [GitHub Repo](https://github.com/FongMi/Release) |
-| TVBox Bundle Download | - | [Cloud Drive Download](https://pan.wpcoder.cn/?dir=tvbox) |
-
-**Multi-Repo Configuration:**
-- Yingshicang: Home → Configuration → Multi-Repo Address
-- FongMi: Settings → Configuration → Multi-Repo
-
-## Notes
-
-- Data Source: [tvbox.clbug.com](https://tvbox.clbug.com/user.php)
-- Automatic Hourly Updates: Speed Test → Scraping → Merging → Deployment
-- Playback Speed Test Process: Fetch Video → Download m3u8 master playlist → Parse media list → Download ts segments → Calculate sustained speed
-- **Pinning Rules**: Sony and 360 are fixed in the top two positions; others are sorted by playback speed/latency.
-- GitHub Actions uses CF Tunnel + Local Proxy (Domestic IP) for speed tests to bypass collection site IP blocks.
-- Unavailable sources are automatically cleaned and re-added once they recover.
-
-## Update Frequency
-
-Executes automatically every hour on the hour (UTC `0 * * * *`) via GitHub Actions.
+1. Open FongMi or TVBox app.
+2. Navigate to **Settings** → **Configuration** (or VOD/Live configuration).
+3. Paste the **Accelerated Mirror (CDN)** URL of your chosen edition.
+4. Save and reload to start watching.

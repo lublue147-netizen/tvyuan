@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """
-TVBox 聚合源自动更新
-每小时 GitHub Actions 自动执行：
-  1. tvbox.json       → 简洁版（采集站，播放测速排序）
-  2. tvbox_full.json  → 全量版（399站合并，带spider）
-  3. tvbox_multi.json → 多仓版（27个独立仓库）
+TVBox 聚合源自动更新与成人源拆分
+GitHub Actions 每日自动执行：
+  【常规纯净版】（无成人、无18+、无色情/福利）
+    1. tvbox.json / tvbox_clean.json             → 简洁纯净版（前10优质采集站，真实测速排序）
+    2. tvbox_full.json / tvbox_full_clean.json   → 全量纯净版（常规影视站+常规直播合并，带 spider）
+    3. tvbox_multi.json / tvbox_multi_clean.json → 多仓纯净版（过滤成人仓库）
+  【包含成人版】
+    4. tvbox_adult.json                          → 成人专区版（成人采集站 + 12个成人直播如pron/麻豆/Sex）
+    5. tvbox_full_adult.json                     → 全量完整版（全部站点与全部直播未删减合并）
+    6. tvbox_multi_adult.json                    → 多仓完整版（包含成人仓的全部仓库）
 """
 import json, sys, re, subprocess, os, time
 import urllib.parse
@@ -12,6 +17,129 @@ from urllib.parse import urljoin, urlparse
 
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 CF_PROXY = os.environ.get("CF_PROXY", "")  # Cloudflare Worker 代理地址
+
+# ── 成人/18+ 内容识别与过滤规则 ──
+ADULT_NAME_PATTERNS = [
+    r"18\+", r"18禁", r"🔞", r"成人", r"福利", r"伦理", r"黄色", r"色情", r"情色", r"春色", r"乱伦",
+    r"麻豆", r"madou", r"丝袜", r"密播", r"蜜桃", r"番号", r"偷拍", r"无码", r"有码",
+    r"熟女", r"女优", r"三级", r"情趣", r"肉视频", r"性爱", r"淫水", r"黄仓",
+    r"\bporn\b", r"\bpron\b", r"\bsex\b", r"\berotic\b", r"\badult\b", r"\bxvideo\b",
+    r"\bporno\b", r"\bpornhub\b", r"\bjav\b", r"\bgay\b",
+    r"(?<![a-zA-Z0-9])91(?![a-zA-Z0-9])",
+    r"(?<![a-zA-Z0-9])av(?![a-zA-Z0-9])",
+]
+
+ADULT_URL_PATTERNS = [
+    r"sexnguon", r"souav", r"xxavs", r"91av", r"91md", r"91jp", r"kxgav", r"pgxdy",
+    r"fhapi", r"msnii", r"xrbsp", r"gdlsp", r"apilyzy", r"mygzycj", r"slapib", r"hsckzy",
+    r"xavapi", r"avzyw", r"shiba1", r"shayuapi", r"yikanapi", r"lbapi9", r"kkzy\.me",
+    r"dadiapi", r"/18\+/", r"/18/", r"selive", r"pron\.m3u", r"Sex\.m3u", r"Adult\.m3u",
+    r"feitucr", r"91porn", r"pornhub", r"肉视频", r"乱伦", r"女优", r"avhh\.vip", r"1av\.shop",
+    r"777mmx\.com", r"jav\.sb"
+]
+
+RE_ADULT_NAME = re.compile("|".join(ADULT_NAME_PATTERNS), re.IGNORECASE)
+RE_ADULT_URL = re.compile("|".join(ADULT_URL_PATTERNS), re.IGNORECASE)
+
+def is_adult_site(site):
+    name = site.get("name", "")
+    clean_name = re.sub(r"^\[.*?\]\s*", "", name)
+    if RE_ADULT_NAME.search(clean_name):
+        return True
+    api = urllib.parse.unquote(str(site.get("api", "")))
+    ext = urllib.parse.unquote(str(site.get("ext", "")))
+    target = f"{api} {ext}"
+    if RE_ADULT_URL.search(target):
+        return True
+    return False
+
+def is_adult_live(live):
+    name = live.get("name", "")
+    url = urllib.parse.unquote(str(live.get("url", "")))
+    return bool(RE_ADULT_NAME.search(name) or RE_ADULT_URL.search(url))
+
+def is_adult_repo(repo):
+    if isinstance(repo, dict):
+        name = repo.get("sourceName", "")
+        url = urllib.parse.unquote(str(repo.get("sourceUrl", "")))
+    elif isinstance(repo, (list, tuple)):
+        name = repo[0]
+        url = urllib.parse.unquote(str(repo[1]))
+    else:
+        return False
+    return bool(RE_ADULT_NAME.search(name) or RE_ADULT_URL.search(url))
+
+def split_existing():
+    """从现有的 json 文件拆分出纯净版和含成人版"""
+    full_path = os.path.join(WORK_DIR, "tvbox_full.json")
+    if not os.path.exists(full_path):
+        print("tvbox_full.json 不存在，无法执行拆分")
+        return 1
+
+    with open(full_path, "r", encoding="utf-8") as f:
+        full_json = json.load(f)
+
+    spider = full_json.get("spider", "")
+    all_sites = full_json.get("sites", [])
+    all_lives = full_json.get("lives", [])
+    all_parses = full_json.get("parses", [])
+
+    clean_sites = [s for s in all_sites if not is_adult_site(s)]
+    adult_sites = [s for s in all_sites if is_adult_site(s)]
+    clean_lives = [l for l in all_lives if not is_adult_live(l)]
+    adult_lives = [l for l in all_lives if is_adult_live(l)]
+
+    print(f"站点拆分: 纯净 {len(clean_sites)} 站，成人 {len(adult_sites)} 站 (总计 {len(all_sites)})")
+    print(f"直播拆分: 纯净 {len(clean_lives)} 个，成人 {len(adult_lives)} 个 (总计 {len(all_lives)})")
+
+    # 1. tvbox_full.json & tvbox_full_clean.json (纯净全量)
+    clean_full = {"spider": spider, "sites": clean_sites, "lives": clean_lives, "parses": all_parses}
+    with open(os.path.join(WORK_DIR, "tvbox_full.json"), "w", encoding="utf-8") as f:
+        json.dump(clean_full, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(WORK_DIR, "tvbox_full_clean.json"), "w", encoding="utf-8") as f:
+        json.dump(clean_full, f, ensure_ascii=False, indent=2)
+
+    # 2. tvbox_full_adult.json (全量含成人)
+    adult_full = {"spider": spider, "sites": all_sites, "lives": all_lives, "parses": all_parses}
+    with open(os.path.join(WORK_DIR, "tvbox_full_adult.json"), "w", encoding="utf-8") as f:
+        json.dump(adult_full, f, ensure_ascii=False, indent=2)
+
+    # 3. tvbox_adult.json (成人专区版)
+    adult_dedicated = {"spider": spider, "sites": adult_sites, "lives": adult_lives, "parses": all_parses}
+    with open(os.path.join(WORK_DIR, "tvbox_adult.json"), "w", encoding="utf-8") as f:
+        json.dump(adult_dedicated, f, ensure_ascii=False, indent=2)
+
+    # 4. tvbox.json & tvbox_clean.json (简洁纯净版)
+    tb_path = os.path.join(WORK_DIR, "tvbox.json")
+    if os.path.exists(tb_path):
+        with open(tb_path, "r", encoding="utf-8") as f:
+            tb_json = json.load(f)
+        tb_clean_sites = [s for s in tb_json.get("sites", []) if not is_adult_site(s)]
+        tb_clean = {"spider": tb_json.get("spider", ""), "sites": tb_clean_sites, "lives": [], "parses": []}
+        with open(os.path.join(WORK_DIR, "tvbox.json"), "w", encoding="utf-8") as f:
+            json.dump(tb_clean, f, ensure_ascii=False, indent=2)
+        with open(os.path.join(WORK_DIR, "tvbox_clean.json"), "w", encoding="utf-8") as f:
+            json.dump(tb_clean, f, ensure_ascii=False, indent=2)
+
+    # 5. tvbox_multi.json & tvbox_multi_adult.json (多仓版)
+    multi_path = os.path.join(WORK_DIR, "tvbox_multi.json")
+    if os.path.exists(multi_path):
+        with open(multi_path, "r", encoding="utf-8") as f:
+            multi_json = json.load(f)
+        all_repos = multi_json.get("storeHouse", [])
+        clean_repos = [r for r in all_repos if not is_adult_repo(r)]
+        adult_repos = [r for r in all_repos if is_adult_repo(r)]
+        print(f"多仓拆分: 纯净 {len(clean_repos)} 仓，含成人 {len(all_repos)} 仓 (成人仓 {len(adult_repos)})")
+
+        with open(os.path.join(WORK_DIR, "tvbox_multi.json"), "w", encoding="utf-8") as f:
+            json.dump({"storeHouse": clean_repos}, f, ensure_ascii=False, indent=2)
+        with open(os.path.join(WORK_DIR, "tvbox_multi_clean.json"), "w", encoding="utf-8") as f:
+            json.dump({"storeHouse": clean_repos}, f, ensure_ascii=False, indent=2)
+        with open(os.path.join(WORK_DIR, "tvbox_multi_adult.json"), "w", encoding="utf-8") as f:
+            json.dump({"storeHouse": all_repos}, f, ensure_ascii=False, indent=2)
+
+    print("拆分完成!")
+    return 0
 
 def curl(url, timeout=10, via_proxy=False):
     actual_url = f"{CF_PROXY}?u={urllib.parse.quote(url, safe='')}" if (via_proxy and CF_PROXY) else url
@@ -133,6 +261,9 @@ def test_play_speed(api, stype, use_proxy=False):
     return 0, 0, "全部失败"
 
 def main():
+    if "--split-only" in sys.argv:
+        return split_existing()
+
     ts = time.strftime('%Y-%m-%d %H:%M:%S')
     print(f"[{ts}] 开始更新...")
 
@@ -267,16 +398,29 @@ def main():
         s.pop("_speed", None)
         s.pop("_speed_ttfb", None)
 
-    # ── 5. 生成 tvbox_full.json（全量版）──
-    best_spider = max(spider_jars, key=spider_jars.get) if spider_jars else ""
-    full_json = {"spider": best_spider, "sites": all_sites, "lives": all_lives, "parses": all_parses}
-    with open(os.path.join(WORK_DIR, "tvbox_full.json"), "w", encoding="utf-8") as f:
-        json.dump(full_json, f, ensure_ascii=False, indent=2)
-    types = {}
-    for s in all_sites: types[s.get("type", -1)] = types.get(s.get("type", -1), 0) + 1
-    print(f"  全量版: {len(all_sites)} 站点 (采集:{types.get(0,0)+types.get(1,0)} 爬虫:{types.get(3,0)})")
+    # ── 5. 分离纯净与成人内容并生成全量版 ──
+    clean_sites = [s for s in all_sites if not is_adult_site(s)]
+    adult_sites = [s for s in all_sites if is_adult_site(s)]
+    clean_lives = [l for l in all_lives if not is_adult_live(l)]
+    adult_lives = [l for l in all_lives if is_adult_live(l)]
 
-    # ── 6. 生成 tvbox_multi.json（多仓版）──
+    best_spider = max(spider_jars, key=spider_jars.get) if spider_jars else ""
+    clean_full_json = {"spider": best_spider, "sites": clean_sites, "lives": clean_lives, "parses": all_parses}
+    adult_full_json = {"spider": best_spider, "sites": all_sites, "lives": all_lives, "parses": all_parses}
+
+    with open(os.path.join(WORK_DIR, "tvbox_full.json"), "w", encoding="utf-8") as f:
+        json.dump(clean_full_json, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(WORK_DIR, "tvbox_full_clean.json"), "w", encoding="utf-8") as f:
+        json.dump(clean_full_json, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(WORK_DIR, "tvbox_full_adult.json"), "w", encoding="utf-8") as f:
+        json.dump(adult_full_json, f, ensure_ascii=False, indent=2)
+
+    types = {}
+    for s in clean_sites: types[s.get("type", -1)] = types.get(s.get("type", -1), 0) + 1
+    print(f"  全量纯净版: {len(clean_sites)} 站点 (采集:{types.get(0,0)+types.get(1,0)} 爬虫:{types.get(3,0)} 直播:{len(clean_lives)})")
+    print(f"  全量含成人: {len(all_sites)} 站点 (含成人:{len(adult_sites)} 直播:{len(all_lives)})")
+
+    # ── 6. 生成多仓版（纯净版 tvbox_multi.json + 含成人版 tvbox_multi_adult.json）──
     # 多仓版置顶：包含索尼/360的仓库排前面
     pinned_repos = set()
     for api_key in collect_sources:
@@ -285,19 +429,32 @@ def main():
                 pinned_repos.add(collect_sources[api_key][0])
     pinned_avail = [(n, u, l) for n, u, l in available if n in pinned_repos]
     other_avail = [(n, u, l) for n, u, l in available if n not in pinned_repos]
-    multi = {"storeHouse": [{"sourceName": f"[{lat}ms] {name}", "sourceUrl": url}
-                            for name, url, lat in pinned_avail + other_avail]}
-    with open(os.path.join(WORK_DIR, "tvbox_multi.json"), "w", encoding="utf-8") as f:
-        json.dump(multi, f, ensure_ascii=False, indent=2)
-    print(f"  多仓版: {len(available)} 个仓库")
+    all_avail = pinned_avail + other_avail
 
-    # ── 7. 生成 tvbox.json（简洁版，固定前10个最快采集站）──
+    clean_avail = [r for r in all_avail if not is_adult_repo(r)]
+    adult_repos_count = len(all_avail) - len(clean_avail)
+
+    multi_clean = {"storeHouse": [{"sourceName": f"[{lat}ms] {name}", "sourceUrl": url}
+                                  for name, url, lat in clean_avail]}
+    multi_adult = {"storeHouse": [{"sourceName": f"[{lat}ms] {name}", "sourceUrl": url}
+                                  for name, url, lat in all_avail]}
+
+    with open(os.path.join(WORK_DIR, "tvbox_multi.json"), "w", encoding="utf-8") as f:
+        json.dump(multi_clean, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(WORK_DIR, "tvbox_multi_clean.json"), "w", encoding="utf-8") as f:
+        json.dump(multi_clean, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(WORK_DIR, "tvbox_multi_adult.json"), "w", encoding="utf-8") as f:
+        json.dump(multi_adult, f, ensure_ascii=False, indent=2)
+    print(f"  多仓纯净版: {len(clean_avail)} 个仓库 / 全量含成人: {len(all_avail)} 个仓库 (成人仓:{adult_repos_count})")
+
+    # ── 7. 生成简洁版与成人专线版 ──
     SIMPLE_LIMIT = 10
+    clean_collect_results = [item for item in collect_results if not is_adult_site({"name": "", "api": item[2]})]
     collect_sites = []
-    for ttfb, speed, api, stype in collect_results[:SIMPLE_LIMIT]:
+    for ttfb, speed, api, stype in clean_collect_results[:SIMPLE_LIMIT]:
         # 从全量站点中找名称
         clean_name = api.split("/")[2]
-        for s in all_sites:
+        for s in clean_sites:
             if s.get("api") == api:
                 clean_name = re.sub(r'^\[.*?\]\s*', '', s.get("name", clean_name))
                 break
@@ -312,12 +469,20 @@ def main():
     collect_json = {"spider": "", "sites": collect_sites, "lives": [], "parses": []}
     with open(os.path.join(WORK_DIR, "tvbox.json"), "w", encoding="utf-8") as f:
         json.dump(collect_json, f, ensure_ascii=False, indent=2)
+    with open(os.path.join(WORK_DIR, "tvbox_clean.json"), "w", encoding="utf-8") as f:
+        json.dump(collect_json, f, ensure_ascii=False, indent=2)
 
-    print(f"  简洁版: {len(collect_sites)}/{SIMPLE_LIMIT} 站（共 {len(collect_results)} 个可用）")
-    for i, (ttfb, speed, api, _) in enumerate(collect_results[:SIMPLE_LIMIT], 1):
+    # 成人专线版：包含所有测速可用的成人站点 + 12个成人直播源 + 解析
+    adult_dedicated_json = {"spider": best_spider, "sites": adult_sites, "lives": adult_lives, "parses": all_parses}
+    with open(os.path.join(WORK_DIR, "tvbox_adult.json"), "w", encoding="utf-8") as f:
+        json.dump(adult_dedicated_json, f, ensure_ascii=False, indent=2)
+
+    print(f"  简洁纯净版: {len(collect_sites)}/{SIMPLE_LIMIT} 站（共 {len(clean_collect_results)} 个非成人可用）")
+    for i, (ttfb, speed, api, _) in enumerate(clean_collect_results[:SIMPLE_LIMIT], 1):
         stable = "🟢" if speed > 500 else "🟡" if speed > 100 else "🔴"
         host = api.split("/")[2][:25]
         print(f"    #{i} [{speed}KB/s|{ttfb}ms] {stable} {host}")
+    print(f"  成人专线版: {len(adult_sites)} 站点, {len(adult_lives)} 直播 (tvbox_adult.json)")
 
     # ── 8. 源列表 ──
     with open(os.path.join(WORK_DIR, "sources.txt"), "w") as f:

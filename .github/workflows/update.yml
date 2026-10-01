@@ -1,41 +1,54 @@
-name: TVBox 自动更新
+name: TVBox 聚合源每日自动更新
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 20 * * *'  # 每天 UTC 20:00 (北京时间 04:00) 自动执行
+  workflow_dispatch:      # 支持手动触发更新
+
+permissions:
+  contents: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}
+          fetch-depth: 1
 
-      - name: 运行更新脚本
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 运行源测速与聚合拆分脚本
         env:
           CF_PROXY: https://tv.cc0cd.cc.cd
-        run: python3 update.py
-
-      - name: 推送更新
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
         run: |
-          git config user.email "bot@tvbox.local"
-          git config user.name "TVBox Bot"
-          git add -A
-          git diff --cached --quiet && echo "无变更" && exit 0
-          git commit -m "auto update: $(date -u '+%Y-%m-%d %H:%M:%S')"
+          python3 update.py
 
-          # 推送到 GitHub（全量）
-          git remote set-url origin https://25175:${GH_PAT}@github.com/25175/tvyuan.git
+      - name: 推送更新到 GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "源数据无变更，无需提交" && exit 0
+          git commit -m "auto update: $(date -u '+%Y-%m-%d %H:%M:%S')"
           git push origin HEAD:master
 
-          # 推送到 Gitee（tvbox_full.json 被审查拦截451，不推送）
-          git remote add gitee https://oauth2:${GITEE_TOKEN}@gitee.com/onm-hundred-and-eleven/tvyuan.git 2>/dev/null || true
-          git rm --cached tvbox_full.json
-          rm -f tvbox_full.json
-          git commit -m "gitee: 移除被拦截的全量版"
-          git push gitee HEAD:main --force 2>/dev/null || echo "Gitee 推送跳过"
+      - name: 同步到 Gitee（可选）
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          if [ -n "$GITEE_TOKEN" ]; then
+            echo "正在同步到 Gitee..."
+            git remote add gitee https://oauth2:${GITEE_TOKEN}@gitee.com/onm-hundred-and-eleven/tvyuan.git 2>/dev/null || true
+            # 移除成人专区文件，避免 Gitee 451 违规拦截
+            git rm --cached -f tvbox_adult.json tvbox_full_adult.json tvbox_multi_adult.json 2>/dev/null || true
+            rm -f tvbox_adult.json tvbox_full_adult.json tvbox_multi_adult.json
+            git commit -m "gitee: 仅同步纯净源" || true
+            git push gitee HEAD:main --force 2>/dev/null || echo "Gitee 推送跳过"
+          else
+            echo "未配置 GITEE_TOKEN，跳过 Gitee 同步"
+          fi
