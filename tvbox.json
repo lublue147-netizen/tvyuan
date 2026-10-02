@@ -2,17 +2,8 @@
   "spider": "",
   "sites": [
     {
-      "key": "360┃直连",
-      "name": "[386KB/s|2342ms|中] 360┃直连",
-      "type": 1,
-      "api": "https://360zy.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "360",
-      "name": "[231KB/s|1819ms|中] 360",
+      "key": "360资源",
+      "name": "[889KB/s|9211ms|稳] 360资源",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod",
       "searchable": 1,
@@ -20,26 +11,17 @@
       "filterable": 0
     },
     {
-      "key": "👖裤佬丨采集",
-      "name": "[10451KB/s|728ms|稳] 👖裤佬丨采集",
+      "key": "IK",
+      "name": "[1863KB/s|1059ms|稳] IK",
       "type": 1,
-      "api": "https://api.wsyzy.net/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🍏无印",
-      "name": "[6967KB/s|844ms|稳] 🍏无印",
-      "type": 1,
-      "api": "https://api.wsyzy.net/api.php/provide/vod/",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
       "key": "🍊鸡坤",
-      "name": "[1608KB/s|912ms|稳] 🍊鸡坤",
+      "name": "[1617KB/s|1001ms|稳] 🍊鸡坤",
       "type": 1,
       "api": "https://jkunzyapi.com/api.php/provide/vod/at/json",
       "searchable": 1,
@@ -47,26 +29,44 @@
       "filterable": 0
     },
     {
-      "key": "🍊辣椒🪜",
-      "name": "[1194KB/s|990ms|稳] 🍊辣椒🪜",
+      "key": "采集视频3",
+      "name": "[1505KB/s|835ms|稳] 采集视频3",
       "type": 1,
-      "api": "https://apilj.com/api.php/provide/vod/at/json/",
+      "api": "https://ikunzyapi.com/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
-      "key": "🍊杏吧",
-      "name": "[1191KB/s|1193ms|稳] 🍊杏吧",
+      "key": "🥣爱坤┃影视",
+      "name": "[1494KB/s|613ms|稳] 🥣爱坤┃影视",
       "type": 1,
-      "api": "https://xingba222.com/api.php/provide/vod",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "🍊蝙蝠",
+      "name": "[1173KB/s|1148ms|稳] 🍊蝙蝠",
+      "type": 1,
+      "api": "http://api.11bat.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "魔都资源",
+      "name": "[1171KB/s|680ms|稳] 魔都资源",
+      "type": 1,
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
       "key": "杏吧资源",
-      "name": "[1167KB/s|713ms|稳] 杏吧资源",
+      "name": "[1171KB/s|825ms|稳] 杏吧资源",
       "type": 0,
       "api": "https://xingba222.com/api.php/provide/vod/at/xml",
       "searchable": 1,
@@ -75,7 +75,7 @@
     },
     {
       "key": "🍊155",
-      "name": "[1155KB/s|1203ms|稳] 🍊155",
+      "name": "[1158KB/s|1139ms|稳] 🍊155",
       "type": 1,
       "api": "https://155api.com/api.php/provide/vod/",
       "searchable": 1,
@@ -83,10 +83,10 @@
       "filterable": 0
     },
     {
-      "key": "🍊蝙蝠",
-      "name": "[1138KB/s|956ms|稳] 🍊蝙蝠",
+      "key": "🍊辣椒🪜",
+      "name": "[1126KB/s|991ms|稳] 🍊辣椒🪜",
       "type": 1,
-      "api": "http://api.11bat.com/api.php/provide/vod/",
+      "api": "https://apilj.com/api.php/provide/vod/at/json/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
