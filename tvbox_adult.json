@@ -3,7 +3,7 @@
   "sites": [
     {
       "key": "ms4nii",
-      "name": "[70ms|apple] 美少女资源(已修复)",
+      "name": "[101ms|apple] 美少女资源(已修复)",
       "type": 0,
       "api": "https://www.msnii.com/api/xml.php",
       "searchable": 1,
@@ -11,8 +11,16 @@
       "filterable": 1
     },
     {
+      "key": "美少女",
+      "name": "[124ms|https://clun.top/fun.json] 美少女",
+      "type": 0,
+      "api": "https://www.msnii.com/api/xml.php",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
       "key": "msnii.com",
-      "name": "[86ms|111] 成人04",
+      "name": "[139ms|111] 成人04",
       "type": 0,
       "api": "https://www.msnii.com/api/xml.php",
       "searchable": 1,
@@ -27,34 +35,17 @@
       }
     },
     {
-      "key": "美少女",
-      "name": "[112ms|https://clun.top/fun.json] 美少女",
-      "type": 0,
-      "api": "https://www.msnii.com/api/xml.php",
-      "searchable": 1,
-      "quickSearch": 1
-    },
-    {
-      "searchable": 1,
-      "search": 1,
-      "quickSearch": 1,
-      "api": "https://lbapi9.com/api.php/provide/vod/at/json",
-      "key": "乐播",
-      "type": 1,
-      "name": "[91ms|zy] 🍊乐播"
-    },
-    {
       "searchable": 1,
       "search": 1,
       "quickSearch": 1,
       "api": "https://slapibf.com/api.php/provide/vod/",
       "key": "森林",
       "type": 1,
-      "name": "[91ms|zy] 🍊森林"
+      "name": "[107ms|zy] 🍊森林"
     },
     {
       "key": "森林专场",
-      "name": "[112ms|https://clun.top/fun.json] 森林 | 采集",
+      "name": "[124ms|https://clun.top/fun.json] 森林 | 采集",
       "type": 1,
       "api": "https://slapibf.com/api.php/provide/vod/",
       "playUrl": "",
@@ -64,17 +55,8 @@
       "ext": "proxy"
     },
     {
-      "searchable": 1,
-      "search": 1,
-      "quickSearch": 1,
-      "api": "http://fhapi9.com/api.php/provide/vod",
-      "key": "番号",
-      "type": 1,
-      "name": "[91ms|zy] 🍊番号"
-    },
-    {
       "key": "*乐播资源",
-      "name": "[70ms|apple] 🔞乐播资源",
+      "name": "[101ms|apple] 🔞乐播资源",
       "type": 1,
       "api": "https://lbapi9.com/api.php/provide/vod/",
       "searchable": 1,
@@ -82,13 +64,31 @@
       "filterable": 0
     },
     {
-      "key": "zp100",
-      "name": "[70ms|apple] 🔞乐播",
-      "type": 0,
-      "api": "https://lbapi9.com/api.php/provide/vod/at/xml/",
+      "key": "zp011",
+      "name": "[689ms|123] 🧿正品┃影视",
+      "type": 1,
+      "api": "https://lbapi9.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
+    },
+    {
+      "searchable": 1,
+      "search": 1,
+      "quickSearch": 1,
+      "api": "http://fhapi9.com/api.php/provide/vod",
+      "key": "番号",
+      "type": 1,
+      "name": "[107ms|zy] 🍊番号"
+    },
+    {
+      "searchable": 1,
+      "search": 1,
+      "quickSearch": 1,
+      "api": "https://lbapi9.com/api.php/provide/vod/at/json",
+      "key": "乐播",
+      "type": 1,
+      "name": "[107ms|zy] 🍊乐播"
     },
     {
       "searchable": 1,
@@ -97,23 +97,105 @@
       "api": "https://shayuapi.com/api.php/provide/vod/",
       "key": "鲨鱼",
       "type": 1,
-      "name": "[91ms|zy] 🍊鲨鱼🪜"
+      "name": "[107ms|zy] 🍊鲨鱼🪜"
     },
     {
       "key": "沙鱼",
-      "name": "[112ms|https://clun.top/fun.json] 沙鱼 | 采集",
+      "name": "[124ms|https://clun.top/fun.json] 沙鱼 | 采集",
       "type": 1,
       "api": "https://shayuapi.com/api.php/provide/vod/",
       "ext": "proxy"
     },
     {
+      "key": "zp100",
+      "name": "[101ms|apple] 🔞乐播",
+      "type": 0,
+      "api": "https://lbapi9.com/api.php/provide/vod/at/xml/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "gay",
+      "name": "[689ms|123] 🧿gay┃资源",
+      "type": 1,
+      "api": "https://slapibf.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
       "key": "*番号资源",
-      "name": "[70ms|apple] 🔞番号资源",
+      "name": "[101ms|apple] 🔞番号资源",
       "type": 1,
       "api": "http://fhapi9.com/api.php/provide/vod/",
       "searchable": 0,
       "quickSearch": 0,
       "filterable": 0
+    },
+    {
+      "key": "fh资源",
+      "name": "[689ms|123] 🧿凤凰┃影视",
+      "type": 1,
+      "api": "http://fhapi9.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
+      "key": "番外",
+      "name": "[689ms|123] 🧿番外┃采集",
+      "type": 1,
+      "api": "http://fhapi9.com/api.php/provide/vod/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "categories": [
+        "群交淫乱",
+        "偷拍自拍",
+        "制服丝袜",
+        "无码专区",
+        "卡通动漫",
+        "中文字幕",
+        "欧美性爱",
+        "巨乳美乳",
+        "国产裸聊",
+        "国产自拍",
+        "国产盗摄",
+        "伦理三级",
+        "女同性恋",
+        "少女萝莉",
+        "人妖系列",
+        "虚拟VR"
+      ]
+    },
+    {
+      "key": "lebo",
+      "name": "[689ms|123] 🧿乐播┃资源",
+      "type": 1,
+      "api": "https://lbapi9.com/api.php/provide/vod/at/json/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "kxgav",
+      "name": "[101ms|apple] 白嫖资源(已修复)",
+      "type": 0,
+      "api": "https://www.kxgav.com/api/xml.php",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "白嫖",
+      "name": "[124ms|https://clun.top/fun.json] 白嫖 | 采集",
+      "type": 0,
+      "api": "https://www.kxgav.com/api/xml.php",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "proxy"
     },
     {
       "searchable": 1,
@@ -122,11 +204,11 @@
       "api": "https://hsckzy888.com/api.php/provide/vod/from/hsckm3u8/at/json",
       "key": "黄仓",
       "type": 1,
-      "name": "[91ms|zy] 🍊黄仓"
+      "name": "[107ms|zy] 🍊黄仓"
     },
     {
       "key": "gdlsE",
-      "name": "[70ms|apple] 香奶儿资源(已修复)",
+      "name": "[101ms|apple] 香奶儿资源(已修复)",
       "type": 0,
       "api": "https://www.gdlsp.com/api/xml.php",
       "searchable": 1,
@@ -134,8 +216,17 @@
       "filterable": 1
     },
     {
+      "key": "香奶儿资源站",
+      "name": "[124ms|https://clun.top/fun.json] 香奶 | 采集",
+      "type": 0,
+      "api": "https://www.gdlsp.com/api/xml.php",
+      "searchable": 0,
+      "quickSearch": 0,
+      "ext": "proxy"
+    },
+    {
       "key": "香奶儿",
-      "name": "[86ms|111] 香奶儿",
+      "name": "[139ms|111] 香奶儿",
       "type": 0,
       "api": "https://www.gdlsp.com/api/xml.php",
       "searchable": 1,
@@ -144,7 +235,7 @@
     },
     {
       "key": "gdlsp.com",
-      "name": "[86ms|111] 成人03",
+      "name": "[139ms|111] 成人03",
       "type": 0,
       "api": "https://www.gdlsp.com/api/xml.php",
       "searchable": 1,
@@ -159,17 +250,8 @@
       }
     },
     {
-      "key": "香奶儿资源站",
-      "name": "[112ms|https://clun.top/fun.json] 香奶 | 采集",
-      "type": 0,
-      "api": "https://www.gdlsp.com/api/xml.php",
-      "searchable": 0,
-      "quickSearch": 0,
-      "ext": "proxy"
-    },
-    {
       "key": "*91麻豆",
-      "name": "[70ms|apple] *91麻豆",
+      "name": "[101ms|apple] *91麻豆",
       "type": 1,
       "api": "https://91md.me/api.php/provide/vod/",
       "searchable": 1,
@@ -177,7 +259,7 @@
     },
     {
       "key": "麻豆视频",
-      "name": "[112ms|https://clun.top/fun.json] 麻豆 | 采集",
+      "name": "[124ms|https://clun.top/fun.json] 麻豆 | 采集",
       "type": 1,
       "api": "https://91md.me/api.php/provide/vod/",
       "searchable": 1,
@@ -186,62 +268,8 @@
       "ext": "proxy"
     },
     {
-      "key": "kxgav",
-      "name": "[70ms|apple] 白嫖资源(已修复)",
-      "type": 0,
-      "api": "https://www.kxgav.com/api/xml.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "白嫖",
-      "name": "[86ms|111] 白嫖",
-      "type": 0,
-      "api": "https://www.kxgav.com/api/xml.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "KxrbspE",
-      "name": "[70ms|apple] 淫水机资源(已修复)",
-      "type": 0,
-      "api": "https://www.xrbsp.com/api/xml.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "xrbsp.com",
-      "name": "[70ms|apple] 成人66",
-      "type": 0,
-      "api": "https://www.xrbsp.com/api/xml.php",
-      "quickSearch": 1,
-      "searchable": 1,
-      "filterable": 1
-    },
-    {
-      "key": "淫水机",
-      "name": "[86ms|111] 淫水机",
-      "type": 0,
-      "api": "https://www.xrbsp.com/api/xml.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "淫水机资源站",
-      "name": "[112ms|https://clun.top/fun.json] 水机 | 采集",
-      "type": 0,
-      "api": "https://www.xrbsp.com/api/xml.php",
-      "searchable": 0,
-      "quickSearch": 0,
-      "ext": "proxy"
-    },
-    {
       "key": "KpgxdyE",
-      "name": "[70ms|apple] 黄AV资源(已修复)",
+      "name": "[101ms|apple] 黄AV资源(已修复)",
       "type": 0,
       "api": "https://www.pgxdy.com/api/xml.php",
       "searchable": 1,
@@ -250,16 +278,7 @@
     },
     {
       "key": "pgxdy",
-      "name": "[70ms|apple] 🔞PGX电影",
-      "type": 0,
-      "api": "https://www.pgxdy.com/api/xml.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "黄AV",
-      "name": "[86ms|111] 黄AV",
+      "name": "[101ms|apple] 🔞PGX电影",
       "type": 0,
       "api": "https://www.pgxdy.com/api/xml.php",
       "searchable": 1,
@@ -268,7 +287,7 @@
     },
     {
       "key": "黄AV资源站",
-      "name": "[112ms|https://clun.top/fun.json] AV | 采集",
+      "name": "[124ms|https://clun.top/fun.json] AV | 采集",
       "type": 0,
       "api": "https://www.pgxdy.com/api/xml.php",
       "searchable": 1,
@@ -276,8 +295,53 @@
       "ext": "proxy"
     },
     {
+      "key": "黄AV",
+      "name": "[139ms|111] 黄AV",
+      "type": 0,
+      "api": "https://www.pgxdy.com/api/xml.php",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "KxrbspE",
+      "name": "[101ms|apple] 淫水机资源(已修复)",
+      "type": 0,
+      "api": "https://www.xrbsp.com/api/xml.php",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "xrbsp.com",
+      "name": "[101ms|apple] 成人66",
+      "type": 0,
+      "api": "https://www.xrbsp.com/api/xml.php",
+      "quickSearch": 1,
+      "searchable": 1,
+      "filterable": 1
+    },
+    {
+      "key": "淫水机资源站",
+      "name": "[124ms|https://clun.top/fun.json] 水机 | 采集",
+      "type": 0,
+      "api": "https://www.xrbsp.com/api/xml.php",
+      "searchable": 0,
+      "quickSearch": 0,
+      "ext": "proxy"
+    },
+    {
+      "key": "淫水机",
+      "name": "[139ms|111] 淫水机",
+      "type": 0,
+      "api": "https://www.xrbsp.com/api/xml.php",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
       "key": "91精品",
-      "name": "[70ms|apple] 91精品",
+      "name": "[101ms|apple] 91精品",
       "type": 1,
       "api": "https://91jpzyw.com/api.php/provide/vod/at/json",
       "searchable": 1,
@@ -285,7 +349,7 @@
     },
     {
       "key": "*色南国资源",
-      "name": "[70ms|apple] *色南国资源",
+      "name": "[101ms|apple] *色南国资源",
       "type": 1,
       "api": "https://api.sexnguon.com/api.php/provide/vod/",
       "searchable": 1,
@@ -293,7 +357,7 @@
     },
     {
       "key": "zp066",
-      "name": "[70ms|apple] 🔞花椒资源",
+      "name": "[101ms|apple] 🔞花椒资源",
       "type": 0,
       "api": "https://api.apilyzy.com/api.php/provide/vod/at/xml/",
       "searchable": 1,
@@ -302,7 +366,7 @@
     },
     {
       "key": "kkzy.me",
-      "name": "[70ms|apple] 成人51",
+      "name": "[101ms|apple] 成人51",
       "type": 1,
       "api": "https://kkzy.me/api.php/provide/vod/",
       "quickSearch": 1,
@@ -311,7 +375,7 @@
     },
     {
       "key": "(18+)JAV名优",
-      "name": "[70ms|apple] (18+)JAV名优",
+      "name": "[101ms|apple] (18+)JAV名优",
       "type": 0,
       "api": "http://mygzycj.com/api.php?ac=list",
       "searchable": 1,
@@ -320,7 +384,7 @@
     },
     {
       "key": "api.apilyzy.com",
-      "name": "[70ms|apple] 成人71",
+      "name": "[101ms|apple] 成人71",
       "type": 1,
       "api": "https://api.apilyzy.com/api.php/provide/vod/",
       "quickSearch": 1,
@@ -329,7 +393,7 @@
     },
     {
       "key": "大地采集",
-      "name": "[70ms|apple] 🔞大地av",
+      "name": "[101ms|apple] 🔞大地av",
       "type": 0,
       "api": "https://dadiapi.com/apple_m3u8.php",
       "playUrl": "https://play.dadiapi.com/watch?url=",
@@ -339,7 +403,7 @@
     },
     {
       "key": "zp128",
-      "name": "[70ms|apple] 🔞鲨鱼影视",
+      "name": "[101ms|apple] 🔞鲨鱼影视",
       "type": 0,
       "api": "https://shayuapi.com/api.php/Seacms/vod/at/xml/",
       "searchable": 1,
@@ -348,7 +412,7 @@
     },
     {
       "key": "*易看资源",
-      "name": "[70ms|apple] 🔞易看资源",
+      "name": "[101ms|apple] 🔞易看资源",
       "type": 1,
       "api": "https://api.yikanapi.com/api.php/provide/vod/",
       "searchable": 0,
@@ -356,8 +420,97 @@
       "filterable": 0
     },
     {
+      "searchable": 1,
+      "search": 1,
+      "quickSearch": 1,
+      "api": "https://91av.cyou/api.php/provide/vod",
+      "key": "91",
+      "type": 1,
+      "name": "[107ms|zy] 🍊91"
+    },
+    {
+      "searchable": 1,
+      "search": 1,
+      "quickSearch": 1,
+      "api": "https://api.souavzyw.net/api.php/provide/vod/",
+      "key": "搜片",
+      "type": 1,
+      "name": "[107ms|zy] 🍊搜片"
+    },
+    {
+      "searchable": 1,
+      "search": 1,
+      "quickSearch": 1,
+      "api": "https://xxavs.com/api.php/provide/vod/at/json",
+      "key": "湿园",
+      "type": 1,
+      "name": "[107ms|zy] 🍊湿园"
+    },
+    {
+      "key": "souav",
+      "name": "[124ms|https://clun.top/fun.json] souav | 采集",
+      "type": 1,
+      "api": "https://api.souavzy.vip/api.php/provide/vod/?ac=list",
+      "playUrl": "https://jiexi.souavzyw.top/m3u8/?url=",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "AV资源",
+      "name": "[124ms|https://clun.top/fun.json] AV | 采集",
+      "type": 1,
+      "api": "https://api.souavzy.vip/api.php/provide/vod/at/json",
+      "searchable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "松视开通3",
+      "name": "[124ms|https://clun.top/fun.json] 松视3 | 采集",
+      "type": 1,
+      "api": "https://api.sexnguon.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0,
+      "ext": "proxy"
+    },
+    {
+      "key": "大地",
+      "name": "[124ms|https://clun.top/fun.json] 大地 | 采集",
+      "type": 0,
+      "api": "https://dadiapi.com/apple_m3u8.php",
+      "playUrl": "https://play.dadiapi.com/watch?url=",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "proxy"
+    },
+    {
+      "key": "易看",
+      "name": "[124ms|https://clun.top/fun.json] 易看 | 采集",
+      "type": 1,
+      "api": "https://api.yikanapi.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "proxy"
+    },
+    {
+      "key": "性爱",
+      "name": "[124ms|https://clun.top/fun.json] 性爱 | 采集",
+      "type": 1,
+      "api": "https://api.sexnguon.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "proxy"
+    },
+    {
       "key": "dadiapi.com",
-      "name": "[86ms|111] 成人01",
+      "name": "[139ms|111] 成人01",
       "type": 0,
       "api": "http://dadiapi.com/api.php",
       "searchable": 1,
@@ -372,97 +525,41 @@
       }
     },
     {
-      "searchable": 1,
-      "search": 1,
-      "quickSearch": 1,
-      "api": "https://91av.cyou/api.php/provide/vod",
-      "key": "91",
-      "type": 1,
-      "name": "[91ms|zy] 🍊91"
-    },
-    {
-      "searchable": 1,
-      "search": 1,
-      "quickSearch": 1,
-      "api": "https://api.souavzyw.net/api.php/provide/vod/",
-      "key": "搜片",
-      "type": 1,
-      "name": "[91ms|zy] 🍊搜片"
-    },
-    {
-      "searchable": 1,
-      "search": 1,
-      "quickSearch": 1,
-      "api": "https://xxavs.com/api.php/provide/vod/at/json",
-      "key": "湿园",
-      "type": 1,
-      "name": "[91ms|zy] 🍊湿园"
-    },
-    {
-      "key": "souav",
-      "name": "[112ms|https://clun.top/fun.json] souav | 采集",
-      "type": 1,
-      "api": "https://api.souavzy.vip/api.php/provide/vod/?ac=list",
-      "playUrl": "https://jiexi.souavzyw.top/m3u8/?url=",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "AV资源",
-      "name": "[112ms|https://clun.top/fun.json] AV | 采集",
-      "type": 1,
-      "api": "https://api.souavzy.vip/api.php/provide/vod/at/json",
-      "searchable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      },
-      "changeable": 1
-    },
-    {
-      "key": "松视开通3",
-      "name": "[112ms|https://clun.top/fun.json] 松视3 | 采集",
-      "type": 1,
-      "api": "https://api.sexnguon.com/api.php/provide/vod/",
-      "searchable": 0,
-      "quickSearch": 0,
-      "ext": "proxy"
-    },
-    {
-      "key": "大地",
-      "name": "[112ms|https://clun.top/fun.json] 大地 | 采集",
+      "key": "大地专场",
+      "name": "[689ms|123] 🧿大地┃采集",
       "type": 0,
-      "api": "https://dadiapi.com/apple_m3u8.php",
-      "playUrl": "https://play.dadiapi.com/watch?url=",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0,
-      "ext": "proxy"
-    },
-    {
-      "key": "易看",
-      "name": "[112ms|https://clun.top/fun.json] 易看 | 采集",
-      "type": 1,
-      "api": "https://api.yikanapi.com/api.php/provide/vod/",
-      "searchable": 0,
-      "quickSearch": 0,
-      "filterable": 0,
-      "ext": "proxy"
-    },
-    {
-      "key": "性爱",
-      "name": "[112ms|https://clun.top/fun.json] 性爱 | 采集",
-      "type": 1,
-      "api": "https://api.sexnguon.com/api.php/provide/vod/",
+      "api": "https://dadiapi.com/api.php",
+      "playUrl": "",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "proxy"
+      "categories": [
+        "日韩无码",
+        "强奸乱伦",
+        "欧美精品",
+        "国产精品",
+        "人妻系列",
+        "中文字幕",
+        "动漫精品",
+        "伦理影片",
+        "日韩精品",
+        "制服诱惑",
+        "自拍偷拍",
+        "AV明星",
+        "3P合辑",
+        "巨乳系列",
+        "颜射系列",
+        "口交视频",
+        "自慰系列",
+        "SM重味",
+        "教师学生",
+        "大秀视频",
+        "AV明星1"
+      ]
     },
     {
       "key": "csp_xpath_飞兔成人",
-      "name": "[70ms|apple] 🐰飞兔成人",
+      "name": "[101ms|apple] 🐰飞兔成人",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
@@ -472,28 +569,28 @@
     },
     {
       "key": "py_porn",
-      "name": "[112ms|https://clun.top/fun.json] 肉视频[py]",
+      "name": "[124ms|https://clun.top/fun.json] 肉视频[py]",
       "type": 3,
       "api": "./js/ss/肉视频.py",
       "ext": ""
     },
     {
       "key": "py_rolizxwnoble",
-      "name": "[112ms|https://clun.top/fun.json] 乱伦仓库[py]",
+      "name": "[124ms|https://clun.top/fun.json] 乱伦仓库[py]",
       "type": 3,
       "api": "./js/ss/rolizxwnoble.py",
       "ext": ""
     },
     {
       "key": "py_91porn",
-      "name": "[112ms|https://clun.top/fun.json] 91porn[py]",
+      "name": "[124ms|https://clun.top/fun.json] 91porn[py]",
       "type": 3,
       "api": "./js/ss/91porn.py",
       "ext": ""
     },
     {
       "key": "女优色库",
-      "name": "[112ms|https://clun.top/fun.json] 女优色库[py]",
+      "name": "[124ms|https://clun.top/fun.json] 女优色库[py]",
       "type": 3,
       "filterable": 0,
       "changeable": 0,
@@ -501,7 +598,7 @@
     },
     {
       "key": "py_18",
-      "name": "[112ms|https://clun.top/fun.json] 🔞 | 快递",
+      "name": "[124ms|https://clun.top/fun.json] 🔞 | 快递",
       "type": 3,
       "searchable": 1,
       "quickSearch": 1,
@@ -512,7 +609,7 @@
     },
     {
       "key": "csp_xBPQ_超清",
-      "name": "[112ms|https://clun.top/fun.json] 香蕉超清",
+      "name": "[124ms|https://clun.top/fun.json] 香蕉超清",
       "type": 3,
       "api": "csp_xBPQ",
       "searchable": 1,
@@ -523,7 +620,7 @@
     },
     {
       "key": "csp_xBPQ_聚优AV解说",
-      "name": "[112ms|https://clun.top/fun.json] 聚优AV解说",
+      "name": "[124ms|https://clun.top/fun.json] 聚优AV解说",
       "type": 3,
       "api": "csp_xBPQ",
       "searchable": 1,
@@ -534,7 +631,7 @@
     },
     {
       "key": "csp_pornhub",
-      "name": "[112ms|https://clun.top/fun.json] Pornhub",
+      "name": "[124ms|https://clun.top/fun.json] Pornhub",
       "type": 3,
       "api": "csp_XYQHiker",
       "jar": "./jar/XYQ.jar",
@@ -550,30 +647,81 @@
     },
     {
       "key": "rrys",
-      "name": "[363ms|00000] 人人影视",
+      "name": "[327ms|00000] 人人影视",
       "type": 4,
       "api": "https://catbox.n13.club/18/人人影视.php"
     },
     {
       "key": "yangshi",
-      "name": "[363ms|00000] 央视影视",
+      "name": "[327ms|00000] 央视影视",
       "type": 4,
       "api": "https://catbox.n13.club/18/央视影视.php"
     },
     {
       "key": "yingtan",
-      "name": "[363ms|00000] 影探影视",
+      "name": "[327ms|00000] 影探影视",
       "type": 4,
       "api": "https://catbox.n13.club/18/影探影视.php"
+    },
+    {
+      "key": "JAVSB",
+      "name": "[689ms|123] 🧿春堂┃资源",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "jar": "https://gitee.com/lwlxh/tvhome/raw/master/o.jar",
+      "ext": {
+        "主页url": "https://jav.sb/",
+        "直接播放": "1",
+        "数组": "class=\"relative aspect-w-16 aspect-h-9 rounded overflow-hidden shadow-lg\"&&</div>",
+        "图片": "data-src=\"&&\"",
+        "标题": "alt=\"&&\"",
+        "链接": "href=\"&&\"",
+        "分类url": "https://jav.sb/javtype/{cateId}-{catePg}.html",
+        "分类": "日本有碼$Censored#日本無碼$Uncensored#FC2-PPV$FC2-PPV#無碼破解$Mosaic_Removed#中文字幕$CHN_SUB#MGS動画$MGS#寫真$Adult_IDOL#國產$Asian_Amateur#欧美$Western_Porn"
+      }
+    },
+    {
+      "key": "快活影網",
+      "name": "[689ms|123] 🧿快活┃影视",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "jar": "https://gitee.com/lwlxh/tvhome/raw/master/o.jar",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": {
+        "主页url": "https://www.777mmx.com/yazhouxingai/index.html",
+        "播放数组": "mod play-list&&</ul",
+        "跳转播放链接": "var playUrl=\"&&\"",
+        "链接": "href=\"&&\"",
+        "标题": "alt=\"&&\"",
+        "直接播放": "1",
+        "分类url": "https://www.777mmx.com/{cateId}/{class}/index.html",
+        "分类": "亚洲性爱$yazhouxingai#欧美高清$oumeixingai#亚洲无码$yazhouav#欧美短AV$oumeiav#熟女人妻$shunvrenqi#丝袜制服$siwazhifu#中文熟女$luanlunshunv#三级经典$sanjijingdian"
+      }
+    },
+    {
+      "key": "jap影網",
+      "name": "[689ms|123] 🧿流云┃影视",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "jar": "https://gitee.com/lwlxh/tvhome/raw/master/o.jar",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": {
+        "主页url": "https://www.1av.shop/vodtype/25.html",
+        "播放数组": "mod play-list&&</ul",
+        "跳转播放链接": "var player_aaaa*url\":\"&&\"",
+        "链接": "href=\"&&\"",
+        "标题": "alt=\"&&\"",
+        "直接播放": "1",
+        "分类url": "https://www.1av.shop/vodtype/{cateId}-{catePg}.html;;z",
+        "分类": "国产视频$1#欧美高清$18#日韩视频$17#熟女人妻$25#国产传媒$11#精品推荐$16#网曝私密$2#三级电影$21"
+      }
     }
   ],
   "lives": [
-    {
-      "name": "成人直播",
-      "type": 0,
-      "url": "https://raw.bgithub.xyz/wwb521/live/refs/heads/main/selive.txt",
-      "playerType": 2
-    },
     {
       "epg": "http://epg.112114.xyz/?ch={name}&date={date}",
       "logo": "https://epg.112114.xyz/logo/{name}.png",
@@ -654,6 +802,12 @@
       "url": "https://github.com/zwrt/IPTV/blob/Files/Adult.m3u",
       "type": 0,
       "ua": "okhttp/3.15"
+    },
+    {
+      "name": "成人直播",
+      "type": 0,
+      "url": "https://raw.bgithub.xyz/wwb521/live/refs/heads/main/selive.txt",
+      "playerType": 2
     }
   ],
   "parses": [
@@ -1121,6 +1275,11 @@
       "name": "m3u8-sstv",
       "type": 0,
       "url": "https://live.fanmingming.com/player/?vurl="
+    },
+    {
+      "name": "souav",
+      "type": 1,
+      "url": "https://jiexi.souavzyw.top/m3u8/?url="
     },
     {
       "name": "Web聚合",
@@ -1717,11 +1876,6 @@
       "url": "https://jx.52ruo.cc/json/?id=6&url="
     },
     {
-      "name": "souav",
-      "type": 1,
-      "url": "https://jiexi.souavzyw.top/m3u8/?url="
-    },
-    {
       "name": "巧技",
       "type": 1,
       "url": "http://pan.qiaoji8.com/tvbox/neibu.php?url=",
@@ -2009,6 +2163,11 @@
       "url": "http://43.136.176.188:91/api/?key=4ef232e96172b0bda78d393c695fe7c4&url="
     },
     {
+      "name": "🎬 影视聚合",
+      "type": 3,
+      "url": "影视"
+    },
+    {
       "name": "ikun",
       "type": 0,
       "url": "https://jx.hls.one/?url="
@@ -2037,11 +2196,6 @@
       "name": "优选",
       "type": 1,
       "url": "http://1.94.221.189:88/algorithm.php?url="
-    },
-    {
-      "name": "🎬 影视聚合",
-      "type": 3,
-      "url": "影视"
     },
     {
       "name": "qiyi[官源]",
@@ -2763,6 +2917,36 @@
           "西瓜"
         ]
       }
+    },
+    {
+      "name": "线路1",
+      "type": 1,
+      "url": "https://json.xophp.com/api/?key=5492ef7d5a1646338426e2f45b8c8e0d&url="
+    },
+    {
+      "name": "线路2",
+      "type": 1,
+      "url": "https://player.gimy.bot/u/parse.php?url="
+    },
+    {
+      "name": "线路3",
+      "type": 1,
+      "url": "http://global.apirun.xn--vsqw5hh18a8vw.com:2025/api/?key=63c856aac8b205a5cb972ae8950cfd78&url="
+    },
+    {
+      "name": "线路4",
+      "type": 1,
+      "url": "https://api.jxapi.cc/api/?key=6e4acf058180b58cbdb0106aa5cdb1e2&url="
+    },
+    {
+      "name": "线路5",
+      "type": 1,
+      "url": "https://api.huaqi.pro/api/?key=5bd0db7c858ba9f999373450f3651af7&url="
+    },
+    {
+      "name": "线路6",
+      "type": 1,
+      "url": "http://111.170.140.70:1332/?url="
     }
   ]
 }
