@@ -2,8 +2,35 @@
   "spider": "",
   "sites": [
     {
+      "key": "影视 • 率率[直连]",
+      "name": "[771KB/s|707ms|稳] 影视 • 率率[直连]",
+      "type": 1,
+      "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "🐝索尼资源",
+      "name": "[591KB/s|667ms|稳] 🐝索尼资源",
+      "type": 1,
+      "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "影视 • 索尼[直连]",
+      "name": "[570KB/s|824ms|稳] 影视 • 索尼[直连]",
+      "type": 0,
+      "api": "https://suoniapi.com/api.php/provide/vod/at/xml/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
       "key": "🦚360┃采集",
-      "name": "[1857KB/s|585ms|稳] 🦚360┃采集",
+      "name": "[563KB/s|821ms|稳] 🦚360┃采集",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod?",
       "searchable": 1,
@@ -12,7 +39,7 @@
     },
     {
       "key": "360资源",
-      "name": "[1595KB/s|207ms|稳] 360资源",
+      "name": "[551KB/s|437ms|稳] 360资源",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod",
       "searchable": 1,
@@ -20,8 +47,17 @@
       "filterable": 0
     },
     {
+      "key": "🍏虎牙",
+      "name": "[2597KB/s|4388ms|稳] 🍏虎牙",
+      "type": 1,
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8/at/json",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
       "key": "👖裤佬丨采集",
-      "name": "[6966KB/s|366ms|稳] 👖裤佬丨采集",
+      "name": "[2584KB/s|915ms|稳] 👖裤佬丨采集",
       "type": 1,
       "api": "https://api.wsyzy.net/api.php/provide/vod",
       "searchable": 1,
@@ -30,7 +66,7 @@
     },
     {
       "key": "鸡坤 | 采集",
-      "name": "[4932KB/s|303ms|稳] 鸡坤 | 采集",
+      "name": "[2567KB/s|620ms|稳] 鸡坤 | 采集",
       "type": 1,
       "api": "https://jkunzyapi.com/api.php/provide/vod/",
       "searchable": 1,
@@ -38,55 +74,19 @@
       "filterable": 0
     },
     {
-      "key": "金鹰影视",
-      "name": "[4227KB/s|1465ms|稳] 金鹰影视",
+      "key": "茅台资源",
+      "name": "[1841KB/s|3908ms|稳] 茅台资源",
       "type": 0,
-      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/xml/",
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
-      "key": "🍏新浪",
-      "name": "[4202KB/s|393ms|稳] 🍏新浪",
+      "key": "🍏无印",
+      "name": "[1803KB/s|1035ms|稳] 🍏无印",
       "type": 1,
-      "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🎀红牛┃采集",
-      "name": "[3833KB/s|2592ms|稳] 🎀红牛┃采集",
-      "type": 1,
-      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "影视 • 非凡[直连]",
-      "name": "[3578KB/s|651ms|稳] 影视 • 非凡[直连]",
-      "type": 1,
-      "api": "http://ffzy.tv/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "玉兔 | 采集",
-      "name": "[3452KB/s|478ms|稳] 玉兔 | 采集",
-      "type": 1,
-      "api": "https://apiyutu.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🐝非凡资源",
-      "name": "[3391KB/s|523ms|稳] 🐝非凡资源",
-      "type": 1,
-      "api": "http://cj.ffzyapi.com/api.php/provide/vod/?ac=list",
+      "api": "https://api.wsyzy.net/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
