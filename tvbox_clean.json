@@ -2,8 +2,17 @@
   "spider": "",
   "sites": [
     {
-      "key": "360资源",
-      "name": "[1554KB/s|648ms|稳] 360资源",
+      "key": "360┃直连",
+      "name": "[7235KB/s|318ms|稳] 360┃直连",
+      "type": 1,
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "360",
+      "name": "[5901KB/s|192ms|稳] 360",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod",
       "searchable": 1,
@@ -11,8 +20,17 @@
       "filterable": 0
     },
     {
+      "key": "🦚360┃采集",
+      "name": "[5120KB/s|496ms|稳] 🦚360┃采集",
+      "type": 1,
+      "api": "https://360zy.com/api.php/provide/vod?",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
       "key": "👖裤佬丨采集",
-      "name": "[10348KB/s|937ms|稳] 👖裤佬丨采集",
+      "name": "[5436KB/s|195ms|稳] 👖裤佬丨采集",
       "type": 1,
       "api": "https://api.wsyzy.net/api.php/provide/vod",
       "searchable": 1,
@@ -20,35 +38,8 @@
       "filterable": 0
     },
     {
-      "key": "🍏无印",
-      "name": "[3170KB/s|903ms|稳] 🍏无印",
-      "type": 1,
-      "api": "https://api.wsyzy.net/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🍊鸡坤",
-      "name": "[1536KB/s|968ms|稳] 🍊鸡坤",
-      "type": 1,
-      "api": "https://jkunzyapi.com/api.php/provide/vod/at/json",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🍏虎牙",
-      "name": "[1522KB/s|2272ms|稳] 🍏虎牙",
-      "type": 1,
-      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8/at/json",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🍏光速",
-      "name": "[1475KB/s|323ms|稳] 🍏光速",
+      "key": "光速资源2",
+      "name": "[5307KB/s|371ms|稳] 光速资源2",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
       "searchable": 1,
@@ -56,8 +47,17 @@
       "filterable": 0
     },
     {
-      "key": "🍏金鹰",
-      "name": "[1444KB/s|2610ms|稳] 🍏金鹰",
+      "key": "光速资源",
+      "name": "[5304KB/s|373ms|稳] 光速资源",
+      "type": 1,
+      "api": "http://api.guangsuapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "金鹰资源",
+      "name": "[5145KB/s|1689ms|稳] 金鹰资源",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/",
       "searchable": 1,
@@ -65,28 +65,28 @@
       "filterable": 0
     },
     {
-      "key": "🎀光速┃采集",
-      "name": "[1412KB/s|402ms|稳] 🎀光速┃采集",
+      "key": "🍏无印",
+      "name": "[4888KB/s|349ms|稳] 🍏无印",
       "type": 1,
-      "api": "http://api.guangsuapi.com/api.php/provide/vod/",
+      "api": "https://api.wsyzy.net/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
-      "key": "金鹰影视",
-      "name": "[1326KB/s|4261ms|稳] 金鹰影视",
-      "type": 0,
-      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/xml/",
+      "key": "🍏虎牙",
+      "name": "[4752KB/s|1726ms|稳] 🍏虎牙",
+      "type": 1,
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8/at/json",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
-      "key": "🍊蝙蝠",
-      "name": "[1215KB/s|861ms|稳] 🍊蝙蝠",
+      "key": "烂大街",
+      "name": "[4547KB/s|1799ms|稳] 烂大街",
       "type": 1,
-      "api": "http://api.11bat.com/api.php/provide/vod/",
+      "api": "https://www.huyaapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
