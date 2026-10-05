@@ -2,8 +2,8 @@
   "spider": "",
   "sites": [
     {
-      "key": "360",
-      "name": "[40KB/s|779ms|慢] 360",
+      "key": "360资源",
+      "name": "[46KB/s|648ms|慢] 360资源",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod",
       "searchable": 1,
@@ -11,17 +11,8 @@
       "filterable": 0
     },
     {
-      "key": "360┃直连",
-      "name": "[37KB/s|1245ms|慢] 360┃直连",
-      "type": 1,
-      "api": "https://360zy.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
       "key": "🍊19",
-      "name": "[4590KB/s|235ms|稳] 🍊19",
+      "name": "[5893KB/s|139ms|稳] 🍊19",
       "type": 1,
       "api": "https://19q.cc/api.php/provide/vod",
       "searchable": 1,
@@ -29,26 +20,17 @@
       "filterable": 0
     },
     {
-      "key": "👖裤佬丨采集",
-      "name": "[2168KB/s|1140ms|稳] 👖裤佬丨采集",
+      "key": "💥丨爱看2k丨微广",
+      "name": "[2722KB/s|402ms|稳] 💥丨爱看2k丨微广",
       "type": 1,
-      "api": "https://api.wsyzy.net/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "烂大街",
-      "name": "[1770KB/s|2751ms|稳] 烂大街",
-      "type": 1,
-      "api": "https://www.huyaapi.com/api.php/provide/vod/",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
       "key": "🍊鸡坤",
-      "name": "[1684KB/s|847ms|稳] 🍊鸡坤",
+      "name": "[2467KB/s|597ms|稳] 🍊鸡坤",
       "type": 1,
       "api": "https://jkunzyapi.com/api.php/provide/vod/at/json",
       "searchable": 1,
@@ -56,8 +38,17 @@
       "filterable": 0
     },
     {
+      "key": "采集视频3",
+      "name": "[2279KB/s|688ms|稳] 采集视频3",
+      "type": 1,
+      "api": "https://ikunzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
       "key": "🍏虎牙",
-      "name": "[1563KB/s|2455ms|稳] 🍏虎牙",
+      "name": "[2254KB/s|2452ms|稳] 🍏虎牙",
       "type": 1,
       "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8/at/json",
       "searchable": 1,
@@ -66,7 +57,7 @@
     },
     {
       "key": "🍏光速",
-      "name": "[1476KB/s|415ms|稳] 🍏光速",
+      "name": "[2220KB/s|339ms|稳] 🍏光速",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
       "searchable": 1,
@@ -74,8 +65,17 @@
       "filterable": 0
     },
     {
+      "key": "烂大街",
+      "name": "[2173KB/s|2473ms|稳] 烂大街",
+      "type": 1,
+      "api": "https://www.huyaapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
       "key": "🎀光速┃采集",
-      "name": "[1471KB/s|355ms|稳] 🎀光速┃采集",
+      "name": "[1878KB/s|450ms|稳] 🎀光速┃采集",
       "type": 1,
       "api": "http://api.guangsuapi.com/api.php/provide/vod/",
       "searchable": 1,
@@ -83,10 +83,10 @@
       "filterable": 0
     },
     {
-      "key": "IK",
-      "name": "[1244KB/s|613ms|稳] IK",
+      "key": "🍏速播",
+      "name": "[1749KB/s|295ms|稳] 🍏速播",
       "type": 1,
-      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/",
+      "api": "https://subocaiji.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
