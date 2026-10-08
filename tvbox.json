@@ -2,17 +2,17 @@
   "spider": "",
   "sites": [
     {
-      "key": "360┃直连",
-      "name": "[308KB/s|654ms|中] 360┃直连",
+      "key": "🦚360┃采集",
+      "name": "[1009KB/s|398ms|稳] 🦚360┃采集",
       "type": 1,
-      "api": "https://360zy.com/api.php/provide/vod/",
+      "api": "https://360zy.com/api.php/provide/vod?",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
-      "key": "360",
-      "name": "[224KB/s|835ms|中] 360",
+      "key": "360资源",
+      "name": "[496KB/s|898ms|中] 360资源",
       "type": 1,
       "api": "https://360zy.com/api.php/provide/vod",
       "searchable": 1,
@@ -20,73 +20,73 @@
       "filterable": 0
     },
     {
-      "key": "👖裤佬丨采集",
-      "name": "[3891KB/s|773ms|稳] 👖裤佬丨采集",
+      "key": "🍏新浪",
+      "name": "[13597KB/s|502ms|稳] 🍏新浪",
       "type": 1,
-      "api": "https://api.wsyzy.net/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🍏无印",
-      "name": "[2951KB/s|893ms|稳] 🍏无印",
-      "type": 1,
-      "api": "https://api.wsyzy.net/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🍊鸡坤",
-      "name": "[2758KB/s|521ms|稳] 🍊鸡坤",
-      "type": 1,
-      "api": "https://jkunzyapi.com/api.php/provide/vod/at/json",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "iKun资源",
-      "name": "[2622KB/s|608ms|稳] iKun资源",
-      "type": 0,
-      "api": "https://ikunzyapi.com/api.php/provide/vod/at/xml",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🥣爱坤┃影视",
-      "name": "[2259KB/s|561ms|稳] 🥣爱坤┃影视",
-      "type": 1,
-      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "🍏360",
-      "name": "[2000KB/s|820ms|稳] 🍏360",
-      "type": 1,
-      "api": "https://360zyzz.com/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0
-    },
-    {
-      "key": "金鹰影视",
-      "name": "[1184KB/s|2674ms|稳] 金鹰影视",
-      "type": 0,
-      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/xml/",
+      "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
     },
     {
       "key": "新浪资源",
-      "name": "[1157KB/s|393ms|稳] 新浪资源",
+      "name": "[12940KB/s|515ms|稳] 新浪资源",
       "type": 0,
       "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/at/xml/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "魔都资源",
+      "name": "[11286KB/s|115ms|稳] 魔都资源",
+      "type": 1,
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "🎀红牛┃采集",
+      "name": "[10739KB/s|3922ms|稳] 🎀红牛┃采集",
+      "type": 1,
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "烂大街",
+      "name": "[8402KB/s|4565ms|稳] 烂大街",
+      "type": 1,
+      "api": "https://www.huyaapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "🍏速播",
+      "name": "[8007KB/s|417ms|稳] 🍏速播",
+      "type": 1,
+      "api": "https://subocaiji.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "奶香 | 采集",
+      "name": "[7988KB/s|247ms|稳] 奶香 | 采集",
+      "type": 1,
+      "api": "https://naixxzy.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    },
+    {
+      "key": "👖裤佬丨采集",
+      "name": "[6376KB/s|273ms|稳] 👖裤佬丨采集",
+      "type": 1,
+      "api": "https://api.wsyzy.net/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0
